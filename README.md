@@ -2,6 +2,9 @@
 
 
 #### Example: 
+API URL: `http://localhost:8000/api/`
+
+
 
       [
           {
@@ -23,3 +26,13 @@
               "author": 1
           }
       ]
+      
+      
+ #### Admin language Example.
+ 
+ URL : ``http://localhost:8000/te/admin/app1/post/``
+ 
+  
+  ![image](https://user-images.githubusercontent.com/45687374/212754712-a96b30aa-3bdf-4a95-b7e8-38f69da6fc5c.png)
+
+
