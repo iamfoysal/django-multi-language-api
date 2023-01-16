@@ -11,7 +11,7 @@ class PostAdmin(TranslatableAdmin):
     fieldsets = (
         (None, {
 
-            'fields': ('title', 'content'),
+            'fields': ('title', 'short_description', 'description'),
         }),
     )
 
