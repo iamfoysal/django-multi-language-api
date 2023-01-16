@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
-
+from django.utils.translation import gettext_lazy as _
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -31,27 +31,34 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "admin_interface",
+    "colorfield",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'parler',
     'rest_framework',
     'app1',
+    'adminsortable2',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    "django.middleware.locale.LocaleMiddleware",
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+X_FRAME_OPTIONS = "SAMEORIGIN"
+SILENCED_SYSTEM_CHECKS = ["security.W019"]
 ROOT_URLCONF = 'core.urls'
 
 TEMPLATES = [
@@ -126,16 +133,43 @@ PARLER_LANGUAGES = {
     }
 }
 
+LANGUAGES = (
+    ("en", _("English")),
+    ("bn", _("Bangla")),
+    ("fr", _("Français")),
+    ("de", _("Deutsch")),
+    ("es", _("Español")),
+    ("pt", _("Português")),
+    ("ru", _("Русский")),
+    ("zh-hans", _("简体中文")),
+    ("zh-hant", _("繁體中文")),
+    ("ja", _("日本語")),
+    ("ko", _("한국어")),
+    ("ar", _("العربية")),
+    ("fa", _("فارسی")),
+    ("ur", _("اردو")),
+    ("hi", _("हिन्दी")),
+    ("ta", _("தமிழ்")),
+    ("te", _("తెలుగు")),
+    ("ml", _("മലയാളം")),
+
+    # more than one language is expected here
+)
+
 
 PARLER_ENABLE_CACHING = True
 PARLER_CACHE_PREFIX = ''
 PARLER_SHOW_EXCLUDED_LANGUAGE_TABS = False
 PARLER_DEFAULT_ACTIVATE = True
 
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = 'staticfiles'
+MEDIA_URL = 'media/'
+MEDIA_ROOT = 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

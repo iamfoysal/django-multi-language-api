@@ -47,7 +47,8 @@ nosetests.xml
 coverage.xml
 *.cover
 .hypothesis/
-
+staticfiles/
+admin_interface_theme_{{name}}.json/
 # Translations
 *.mo
 *.pot
